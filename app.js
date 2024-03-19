@@ -6,7 +6,7 @@ const list = document.querySelector("#wainwrights-list"); //global variable
 const getAllWainrights = async () => {
     const response = await fetch("https://raw.githubusercontent.com/annahndr/annahndr.github.io/master/wainwrights_data/wainwrights.json");
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     data.forEach((element) => createWainright(element))
     
     // createWainrights(wainwrights);
@@ -32,6 +32,9 @@ const createWainright = (hill) => {
     list.appendChild(wainrightAbout);
 
 }
+
+//function that listens to form
+
 
 //call function
 getAllWainrights();
