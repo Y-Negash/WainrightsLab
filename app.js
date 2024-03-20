@@ -3,30 +3,6 @@ const list = document.querySelector("#wainwrights-list");
 const wainrightForm = document.querySelector("#wainright-form");
 let totalWainrights;
 
-function appendElements(filteredWainrights){filteredWainrights.forEach((hill) => {
-    //function that creates new elements about each Wainright
-    
-    const wainrightName = document.createElement("h2");
-        const wainrightHeight = document.createElement("h3");
-        const wainrightArea = document.createElement("p");
-        const wainrightAbout = document.createElement("p");
-        
-        //fills new elements with properties of the hill
-        wainrightName.innerText = hill.name;
-        wainrightHeight.innerText = hill.heightMetres;
-        wainrightArea.innerText = hill.area.areaName;
-        wainrightAbout.innerText = hill.area.about;
-        
-        // adds to unordered list with the new properties...
-        list.appendChild(wainrightName);
-        list.appendChild(wainrightHeight);
-        list.appendChild(wainrightArea);
-        list.appendChild(wainrightAbout);
-
-    });
-
-}
-
 //get data for all wainrights
 const getAllWainrights = async () => {
     
@@ -49,6 +25,31 @@ const getAllWainrights = async () => {
     }
     })
 }
+
+function appendElements(filteredWainrights){filteredWainrights.forEach((hill) => {
+    //function that creates new elements about each Wainright
+    
+    const wainrightName = document.createElement("h2");
+        const wainrightHeight = document.createElement("h3");
+        const wainrightArea = document.createElement("p");
+        const wainrightAbout = document.createElement("p");
+        
+        //fills new elements with properties of the hill
+        wainrightName.innerText = hill.name;
+        wainrightHeight.innerText = "Height: " + hill.heightMetres + "m";
+        wainrightArea.innerText = "Area name: " + hill.area.areaName;
+        wainrightAbout.innerText = hill.area.about;
+        
+        // adds to unordered list with the new properties...
+        list.appendChild(wainrightName);
+        list.appendChild(wainrightHeight);
+        list.appendChild(wainrightArea);
+        list.appendChild(wainrightAbout);
+
+    });
+
+}
+
 //call function
 getAllWainrights();
 
